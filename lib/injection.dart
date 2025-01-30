@@ -47,5 +47,5 @@ void init() {
   // BLOC
   locator.registerFactory(() => SuratBloc(locator()));
   locator.registerFactory(() => DetailSuratBloc(locator()));
-  // locator.registerFactory(() => LastSuratBloc(locator(), locator(), locator()));
+  locator.registerFactory(() => LastSuratBloc(locator(), locator(), locator()));
 }

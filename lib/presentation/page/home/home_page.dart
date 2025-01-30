@@ -1,10 +1,12 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'package:aplikasi_suara_ilahi/core/constant.dart';
 import 'package:aplikasi_suara_ilahi/presentation/bloc/last_surat/bloc/last_surat_bloc.dart';
 import 'package:aplikasi_suara_ilahi/presentation/bloc/surat/surat_bloc.dart';
 import 'package:aplikasi_suara_ilahi/presentation/page/detail_surat_page/detail_surat_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -33,131 +35,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-              margin: EdgeInsets.only(
-                top: height * 0.01,
-                left: width * 0.05,
-                right: width * 0.05,
-              ),
-              padding: EdgeInsets.all(width * 0.05),
-              height: height * 0.2,
-              decoration: BoxDecoration(
-                color: secoundColor,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(width * 0.05),
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  FutureBuilder(
-                    future: Future.microtask(
-                      // ignore: use_build_context_synchronously
-                      () => context.read<LastSuratBloc>().add(
-                            OnGetLastSurat(),
-                          ),
-                    ),
-                    builder: (context, snapshot) {
-                      return BlocBuilder<LastSuratBloc, LastSuratState>(
-                        builder: (context, state) {
-                          if (state is LastSuratLoading) {
-                            return Center(
-                              child: Text("Loading..."),
-                            );
-                          }
-                          if (state is LastSuratHasData) {
-                            final data = state.suratModela;
-                            if (data["surat"] != null) {
-                              return Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    width: width * 0.4,
-                                    decoration: BoxDecoration(
-                                      // color: secoundColor,
-                                      border: Border(
-                                        bottom: BorderSide(),
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                          bottom: height * 0.005),
-                                      child: Text(
-                                        "Last Reading",
-                                        style: GoogleFonts.lato(
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    "Surat ${data["surat"] ?? ""}",
-                                    style: GoogleFonts.lato(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  ButtonContinue(
-                                    width: width,
-                                    height: height,
-                                    onTap: () async {
-                                      bool result =
-                                          await Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                          builder: (context) => DetailSuratPage(
-                                              nomor: data["code"]),
-                                        ),
-                                      );
-                                      if (result == true) {
-                                        setState(() {});
-                                      }
-                                    },
-                                  ),
-                                ],
-                              );
-                            } else {
-                              return Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Assalamualaikum ",
-                                    style: GoogleFonts.raleway(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text(
-                                    "selamat datang di aplikasi",
-                                    style: GoogleFonts.raleway(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  )
-                                ],
-                              );
-                            }
-                          }
-                          if (state is LastSuratError) {
-                            return Center(
-                              child: Text("Error..."),
-                            );
-                          }
-                          return Center(
-                            child: Text("Terjadi"),
-                          );
-                        },
-                      );
-                    },
-                  ),
-                  Image.asset(
-                    "assets/logo.png",
-                    width: width * 0.35,
-                  ),
-                ],
-              )),
+          CardInformation(width: width, height: height),
           Padding(
             padding: EdgeInsets.only(
               left: width * 0.05,
@@ -327,6 +205,142 @@ class ButtonContinue extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CardInformation extends StatelessWidget {
+  final double width;
+  final double height;
+  const CardInformation({
+    super.key,
+    required this.width,
+    required this.height,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(
+        top: height * 0.01,
+        left: width * 0.05,
+        right: width * 0.05,
+      ),
+      padding: EdgeInsets.all(width * 0.05),
+      height: height * 0.2,
+      decoration: BoxDecoration(
+        color: secoundColor,
+        borderRadius: BorderRadius.all(
+          Radius.circular(width * 0.05),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          FutureBuilder(
+            future: Future.microtask(
+              // ignore: use_build_context_synchronously
+              () => context.read<LastSuratBloc>().add(
+                    OnGetLastSurat(),
+                  ),
+            ),
+            builder: (context, snapshot) {
+              return BlocBuilder<LastSuratBloc, LastSuratState>(
+                builder: (context, state) {
+                  if (state is LastSuratLoading) {
+                    return Center(
+                      child: Text("Loading..."),
+                    );
+                  }
+                  if (state is LastSuratHasData) {
+                    final data = state.suratModela;
+                    if (data["surat"] != null) {
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: width * 0.4,
+                            decoration: BoxDecoration(
+                              // color: secoundColor,
+                              border: Border(
+                                bottom: BorderSide(),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.only(bottom: height * 0.005),
+                              child: Text(
+                                "Last Reading",
+                                style: GoogleFonts.lato(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "Surat ${data["surat"] ?? ""}",
+                            style: GoogleFonts.lato(
+                                fontSize: 20, fontWeight: FontWeight.w600),
+                          ),
+                          ButtonContinue(
+                            width: width,
+                            height: height,
+                            onTap: () async {
+                              bool result = await Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      DetailSuratPage(nomor: data["code"]),
+                                ),
+                              );
+                              if (result == true) {
+                                // setState(() {});
+                              }
+                            },
+                          ),
+                        ],
+                      );
+                    } else {
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Assalamualaikum ",
+                            style: GoogleFonts.raleway(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "selamat datang di aplikasi",
+                            style: GoogleFonts.raleway(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        ],
+                      );
+                    }
+                  }
+                  if (state is LastSuratError) {
+                    return Center(
+                      child: Text("Error..."),
+                    );
+                  }
+                  return Center(
+                    child: Text("Terjadi"),
+                  );
+                },
+              );
+            },
+          ),
+          Image.asset(
+            "assets/logo.png",
+            width: width * 0.35,
+          ),
+        ],
       ),
     );
   }
