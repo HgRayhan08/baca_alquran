@@ -1,5 +1,5 @@
 import 'package:aplikasi_suara_ilahi/core/constant.dart';
-import 'package:aplikasi_suara_ilahi/presentation/page/home/home_page.dart';
+import 'package:aplikasi_suara_ilahi/presentation/page/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

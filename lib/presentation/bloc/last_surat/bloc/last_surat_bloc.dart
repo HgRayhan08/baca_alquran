@@ -18,55 +18,45 @@ class LastSuratBloc extends Bloc<LastSuratEvent, LastSuratState> {
     this.getLastSurat,
     this.removeLastSurat,
   ) : super(LastSuratInitial()) {
-    on<OnAddLastSurat>((event, emit) async {
-      final surat = event.surat;
-      final result = await insertlastSurat.excecute(surat);
-      result.fold(
-        (failure) => emit(
-          LastSuratError(failure.message),
-        ),
-        (message) async {
-          emit(LastSuratSuccses(message));
+    on<OnGetLastSurat>(_getLastSurat);
+    on<OnAddLastSurat>(_addLstSurat);
+  }
 
-          final updatedSurat = await getLastSurat.excecute();
-          if (emit.isDone) return;
+  Future<void> _getLastSurat(
+      OnGetLastSurat event, Emitter<LastSuratState> emit) async {
+    emit(LastSuratLoading());
+    final result = await getLastSurat.excecute();
+    result.fold(
+      (failure) {
+        emit(LastSuratError(failure.message));
+      },
+      (data) {
+        if (data == {}) {
+          emit(LastSuratHasData({}));
+        } else {
+          emit(LastSuratHasData(data));
+        }
+      },
+    );
+  }
 
-          updatedSurat.fold(
-            (failure) => emit(LastSuratError(failure.message)),
-            (data) => emit(LastSuratHasData(data)),
-          );
-        },
-      );
-    });
+  Future<void> _addLstSurat(
+      OnAddLastSurat event, Emitter<LastSuratState> emit) async {
+    final surat = event.surat;
+    final result = await insertlastSurat.excecute(surat);
+    result.fold(
+      (failure) => emit(
+        LastSuratError(failure.message),
+      ),
+      (message) async {
+        emit(LastSuratSuccses(message));
 
-    on<OnRemoveLastSurat>((event, emit) async {
-      final surat = event.surat;
-      final result = await removeLastSurat.excecute(surat);
-      result.fold(
-        (failure) => emit(
-          LastSuratError(failure.message),
-        ),
-        (message) {
-          emit(LastSuratSuccses(message));
-        },
-      );
-    });
+        final updatedSurat = await getLastSurat.excecute();
+        if (emit.isDone) return;
 
-    on<OnGetLastSurat>(
-      (event, emit) async {
-        emit(LastSuratLoading());
-        final result = await getLastSurat.excecute();
-        result.fold(
-          (failure) {
-            emit(LastSuratError(failure.message));
-          },
-          (data) {
-            if (data == {}) {
-              emit(LastSuratHasData({}));
-            } else {
-              emit(LastSuratHasData(data));
-            }
-          },
+        updatedSurat.fold(
+          (failure) => emit(LastSuratError(failure.message)),
+          (data) => emit(LastSuratHasData(data)),
         );
       },
     );
