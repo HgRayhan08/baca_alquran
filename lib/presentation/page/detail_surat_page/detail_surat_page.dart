@@ -130,6 +130,7 @@ class BodyDetail extends StatelessWidget {
           },
           icon: Icon(Icons.arrow_back),
         ),
+        centerTitle: true,
         title: Text(
           surat.data.namaLatin,
           style: GoogleFonts.raleway(fontSize: 18, fontWeight: FontWeight.w600),

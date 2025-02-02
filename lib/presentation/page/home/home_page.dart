@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
+        centerTitle: true,
         title: Text(
           "Baca Al-Quran",
           style: GoogleFonts.raleway(
