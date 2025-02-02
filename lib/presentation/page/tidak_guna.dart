@@ -4,8 +4,8 @@ import 'package:aplikasi_suara_ilahi/presentation/page/detail_surat_page/detail_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SuratPage extends StatelessWidget {
-  const SuratPage({super.key});
+class TiddakTahu extends StatelessWidget {
+  const TiddakTahu({super.key});
 
   @override
   Widget build(BuildContext context) {

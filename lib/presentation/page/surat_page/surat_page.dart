@@ -8,19 +8,20 @@ import 'package:aplikasi_suara_ilahi/presentation/bloc/last_surat/bloc/last_sura
 import 'package:aplikasi_suara_ilahi/presentation/bloc/surat/surat_bloc.dart';
 import 'package:aplikasi_suara_ilahi/presentation/page/detail_surat_page/detail_surat_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class SuratPage extends StatefulWidget {
+  const SuratPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<SuratPage> createState() => _SuratPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SuratPageState extends State<SuratPage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: Container(),
         centerTitle: true,
@@ -32,6 +33,10 @@ class _HomePageState extends State<HomePage> {
             fontWeight: FontWeight.w600,
           ),
         ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.transparent,
+        shadowColor: Colors.transparent,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,80 +75,77 @@ class _HomePageState extends State<HomePage> {
                   if (state is SuratHasData) {
                     final data = state.alquranModel.data;
                     return Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 50),
-                        child: ListView.builder(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: width * 0.05,
-                          ),
-                          itemCount: data.length,
-                          itemBuilder: (context, index) {
-                            return GestureDetector(
-                              onTap: () async {
-                                bool result = await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => DetailSuratPage(
-                                      nomor: data[index].nomor,
-                                    ),
-                                  ),
-                                );
-                                if (result == true) {
-                                  setState(() {});
-                                }
-                              },
-                              child: Container(
-                                margin: EdgeInsets.only(bottom: height * 0.02),
-                                padding: EdgeInsets.only(bottom: height * 0.01),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                    bottom: BorderSide(color: secoundColor),
+                      child: ListView.builder(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: width * 0.05,
+                        ),
+                        itemCount: data.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () async {
+                              bool result = await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => DetailSuratPage(
+                                    nomor: data[index].nomor,
                                   ),
                                 ),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      width: width * 0.12,
-                                      height: height * 0.05,
-                                      decoration: BoxDecoration(
-                                        color: firstColor,
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(15),
-                                        ),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          "${index + 1}",
-                                          style: GoogleFonts.lato(
-                                              color: fifthColor),
-                                        ),
-                                      ),
-                                    ),
-                                    Column(
-                                      children: [
-                                        Text(
-                                          data[index].namaLatin,
-                                          style: GoogleFonts.lato(fontSize: 14),
-                                        ),
-                                        Text(
-                                          "Berjumlah ${data[index].jumlahAyat.toString()}",
-                                          style: GoogleFonts.lato(fontSize: 12),
-                                        )
-                                      ],
-                                    ),
-                                    Text(
-                                      data[index].nama,
-                                      style: GoogleFonts.lato(fontSize: 18),
-                                    ),
-                                  ],
+                              );
+                              if (result == true) {
+                                setState(() {});
+                              }
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(bottom: height * 0.02),
+                              padding: EdgeInsets.only(bottom: height * 0.01),
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(color: secoundColor),
                                 ),
                               ),
-                            );
-                          },
-                        ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    width: width * 0.12,
+                                    height: height * 0.05,
+                                    decoration: BoxDecoration(
+                                      color: firstColor,
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(15),
+                                      ),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "${index + 1}",
+                                        style:
+                                            GoogleFonts.lato(color: fifthColor),
+                                      ),
+                                    ),
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        data[index].namaLatin,
+                                        style: GoogleFonts.lato(fontSize: 14),
+                                      ),
+                                      Text(
+                                        "Berjumlah ${data[index].jumlahAyat.toString()}",
+                                        style: GoogleFonts.lato(fontSize: 12),
+                                      )
+                                    ],
+                                  ),
+                                  Text(
+                                    data[index].nama,
+                                    style: GoogleFonts.lato(fontSize: 18),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     );
                   }
@@ -211,7 +213,7 @@ class ButtonContinue extends StatelessWidget {
   }
 }
 
-class CardInformation extends StatelessWidget {
+class CardInformation extends StatefulWidget {
   final double width;
   final double height;
   const CardInformation({
@@ -221,19 +223,24 @@ class CardInformation extends StatelessWidget {
   });
 
   @override
+  State<CardInformation> createState() => _CardInformationState();
+}
+
+class _CardInformationState extends State<CardInformation> {
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        top: height * 0.01,
-        left: width * 0.05,
-        right: width * 0.05,
+        top: widget.height * 0.01,
+        left: widget.width * 0.05,
+        right: widget.width * 0.05,
       ),
-      padding: EdgeInsets.all(width * 0.05),
-      height: height * 0.2,
+      padding: EdgeInsets.all(widget.width * 0.05),
+      height: widget.height * 0.2,
       decoration: BoxDecoration(
         color: secoundColor,
         borderRadius: BorderRadius.all(
-          Radius.circular(width * 0.05),
+          Radius.circular(widget.width * 0.05),
         ),
       ),
       child: Row(
@@ -262,7 +269,7 @@ class CardInformation extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: width * 0.4,
+                            width: widget.width * 0.4,
                             decoration: BoxDecoration(
                               // color: secoundColor,
                               border: Border(
@@ -270,7 +277,8 @@ class CardInformation extends StatelessWidget {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.only(bottom: height * 0.005),
+                              padding: EdgeInsets.only(
+                                  bottom: widget.height * 0.005),
                               child: Text(
                                 "Last Reading",
                                 style: GoogleFonts.lato(
@@ -286,8 +294,8 @@ class CardInformation extends StatelessWidget {
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
                           ButtonContinue(
-                            width: width,
-                            height: height,
+                            width: widget.width,
+                            height: widget.height,
                             onTap: () async {
                               bool result = await Navigator.of(context).push(
                                 MaterialPageRoute(
@@ -296,7 +304,7 @@ class CardInformation extends StatelessWidget {
                                 ),
                               );
                               if (result == true) {
-                                // setState(() {});
+                                setState(() {});
                               }
                             },
                           ),
@@ -331,7 +339,7 @@ class CardInformation extends StatelessWidget {
                     );
                   }
                   return Center(
-                    child: Text("Terjadi"),
+                    child: Text("Terjadi Error"),
                   );
                 },
               );
@@ -339,7 +347,7 @@ class CardInformation extends StatelessWidget {
           ),
           Image.asset(
             "assets/logo.png",
-            width: width * 0.35,
+            width: widget.width * 0.35,
           ),
         ],
       ),

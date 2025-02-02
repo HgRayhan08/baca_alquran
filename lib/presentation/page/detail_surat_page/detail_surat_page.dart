@@ -120,13 +120,13 @@ class BodyDetail extends StatelessWidget {
         shadowColor: thirdColor,
         leading: IconButton(
           onPressed: () {
-            Navigator.of(context).pop(true);
             Future.microtask(
               // ignore: use_build_context_synchronously
               () => context.read<LastSuratBloc>().add(
                     OnAddLastSurat(surat),
                   ),
             );
+            Navigator.of(context).pop(true);
           },
           icon: Icon(Icons.arrow_back),
         ),
