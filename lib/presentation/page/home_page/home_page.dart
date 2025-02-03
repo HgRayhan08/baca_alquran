@@ -1,4 +1,5 @@
 import 'package:aplikasi_suara_ilahi/presentation/page/asmaul_husna_page/asmaul_husna_page.dart';
+import 'package:aplikasi_suara_ilahi/presentation/page/doa_page/doa_page.dart';
 import 'package:aplikasi_suara_ilahi/presentation/page/surat_page/surat_page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,15 +12,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
   static const List<Widget> _widgetOptions = <Widget>[
     SuratPage(),
     AsmaulHusnaPage(),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    DoaPage(),
   ];
 
   void _onItemTapped(int index) {

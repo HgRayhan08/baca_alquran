@@ -1,5 +1,6 @@
 import 'package:aplikasi_suara_ilahi/presentation/bloc/asmaul_husna/asmaul_husna_bloc.dart';
 import 'package:aplikasi_suara_ilahi/presentation/bloc/detail_surat/detail_surat_bloc.dart';
+import 'package:aplikasi_suara_ilahi/presentation/bloc/doa/doa_bloc.dart';
 import 'package:aplikasi_suara_ilahi/presentation/bloc/last_surat/bloc/last_surat_bloc.dart';
 import 'package:aplikasi_suara_ilahi/presentation/bloc/surat/surat_bloc.dart';
 import 'package:aplikasi_suara_ilahi/presentation/page/splashscreen_page/splashscreen_page.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(create: (context) => di.locator<LastSuratBloc>()),
         BlocProvider(create: (context) => di.locator<AsmaulHusnaBloc>()),
+        BlocProvider(create: (context) => di.locator<DoaBloc>()),
       ],
       child: MaterialApp(
         home: SplashscreenPage(),

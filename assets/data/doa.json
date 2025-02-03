@@ -1,0 +1,113 @@
+{
+  "nama": "Doa",
+  "data": [
+    {
+      "judul": "Do'a Masuk Rumah",
+      "arab": "اَللّٰهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ بِاسْمِ اللهِ وَلَجْنَا، وبِاسْمِ اللهِ خَرَجْنَا، وَعَلَى اللهِ رَبِّنَا تَوَكَّلْنَا",
+      "latin": "Allâhumma innî as’aluka khairal maulaji wa khairal makhraji, bismillâhi walajnâ wa bismillâhi kharajnâ wa ‘ala-Llâhi rabbinâ tawakkalnâ",
+      "arti": "Ya Allah, aku memohon kepada-Mu sebaik-baik tempat masuk dan sebaik-baik tempat keluar. Atas nama-Mu kami masuk dan atas nama-Mu kami keluar. Dan kepada Allah Tuhan kami, kami bertawakal."
+    },
+    {
+      "judul": "Do'a Keluar Rumah",
+      "arab": "بِسْمِ اللهِ تَوَكَّلْتُ عَلَى اللهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللهِ",
+      "latin": "Bismillâhi tawakkaltu ‘alallâhi wa lâ ḫaula wa lâ quwwata illâ billâh(i)",
+      "arti": "Dengan nama Allah, aku bertawakal kepada Allah. Tidak ada daya dan kekuatan kecuali dengan (pertolongan) Allah."
+    },
+    {
+      "judul": "Do'a Sebelum Tidur ",
+      "arab": "اَللّٰهُمَّ بِسْمِكَ أَحْيَا وَبِسْمِكَ أَمُوْتُ",
+      "latin": "Allâhumma bismika aḫyâ wa bismika amût(u)",
+      "arti": "Ya Allah, dengan Nama-Mu, aku hidup dan dengan nama-Mu pula aku mati."
+    },
+    {
+      "judul": "Do'a Bangun Tidur",
+      "arab": "اَلْحَمْدُ ِللّٰهِ الَّذِيْ أَحْيَانَا بَعْدَمَا أَمَاتَنَا وَإِلَيْهِ النُّشُوْرُ",
+      "latin": "Alḫamdulillâhil ladzî aḫyânâ ba‘da mâ amâtanâ wa ilaihin nusyûr(u)",
+      "arti": "Segala puji bagi Allah yang menghidupkanku kembali setelah mematikanku dan hanya kepada-Nya akan bangkit."
+    },
+    {
+      "judul": "Do'a Masuk Kamar Mandi",
+      "arab": "بِسْمِ اللهِ اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ",
+      "latin": "Bismillâhi allâhumma innî a‘ûdzu bika minal khubutsi wal khabâits(i)",
+      "arti": "Dengan nama Allah, ya Allah, aku berlindung kepada-Mu dari godaan setan laki-laki dan setan perempuan (sesuatu yang keji dan menjijikkan)."
+    },
+    {
+      "judul": "Do'a Keluar Kamar Mandi",
+      "arab": "غُفْرَانَكَ الْحَمْدُ لِلّٰهِ الَّذِيْ أَذْهَبَ عَنِّيْ الْأَذَى وَعَافَانِيْ",
+      "latin": "Ghufrânaka alḫamdulillâhil-ladzî adzhaba ‘annil adzâ wa ‘âfânî",
+      "arti": "Dengan mengharap ampunan-Mu, segala puji bagi Allah yang telah menghilangkan penyakit dari tubuhku dan menyehatkan aku."
+    },
+    {
+      "judul": "Doa Sebelum Makan",
+      "arab": "اَللّٰهُمَّ بَارِكْ لَنَا فِيْمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ",
+      "latin": "Allâhumma bârik lanâ fîmâ razaqtanâ waqinâ ‘adzâban nâr(i)",
+      "arti": "Ya Allah, berkahilah apa yang telah Engkau anugerahkan kepada kami dan jagalah kami dari siksa neraka."
+    },
+    {
+      "judul": "Doa Masuk Masjid",
+      "arab": "اَللّٰهُمَّ اغْفِرْ لِيْ ذُنُوْبِيْ وَافْتَحْ لِيْ أَبْوَابَ رَحْمَتِكَ",
+      "latin": "Allâhummaghfir lî dzunûbî waftaḫ lî abwâba raḫmatik(a)",
+      "arti": "Ya Allah, ampuni segala dosaku dan bukalah bagiku segala pintu rahmat-Mu."
+    },
+    {
+      "judul": "Doa Keluar Masjid",
+      "arab": "اَللّٰهُمَّ اغْفِرْ لِيْ ذُنُوْبِيْ وَافْتَحْ لِيْ أَبْوَابَ فَضْلِكَ",
+      "latin": "Allâhummaghfirlî dzunûbî waftaḫ lî abwâba fadl-lik(a)",
+      "arti": "Ya Allah, ampuni segala dosaku. Bukakanlah bagiku segala pintu anugerahmu-Mu."
+    },
+    {
+      "judul": "Doa Sesudah Adzan",
+      "arab": "اَللّٰهُمَّ رَبَّ هٰذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلَاةِ الْقَائِمَةِ اٰتِ سَيِّدَنَـا مُحَمَّـدًا ࣙالْوَسِيْلَةَ وَالْفَضِيْلَةَ ‎وَالدَّرَجَةَ الرَّفِيْعَةَ وَابْعَثْهُ مَقَامًا مَحْمُوْدًا ࣙالَّذِيْ وَعَدْتَهُ إِنَّكَ لَا تُخْلِفُ الْمِيْعَادَ",
+      "latin": "Allâhumma Rabba hâdzihid-da‘watit-tâmmati, wash-shalâtil-qâimati, âti sayyidanâ Muḫammada nil-wasîlata wal fadlîlata wad darajatar rafî‘ah, wab‘ats-hu maqâman maḫmûdani-lladzî wa‘adtah, innaka lâ tukhliful-mî‘âd(a)",
+      "arti": "Ya Allah Tuhan yang memiliki seruan yang sempurna dan shalat yang tetap didirikan, karuniailah Nabi Muhammad wasilah (tempat yang luhur), keutamaan, dan derajat yang tinggi. Tempatkanlah beliau pada kependudukan yang terpuji yang telah Kaujanjikan. Sungguh Engkau tiada menyalahi janji, wahai dzat yang paling Penyayang."
+    },
+    {
+      "judul": "Doa Bercermin",
+      "arab": "اَللّٰهُمَّ كَمَا حَسَّنْتَ خَلْقِيْ فَحَسِّنْ خُلُقِيْ",
+      "latin": "Allâhumma kamâ ḫassanta khalqî faḫassin khuluqî",
+      "arti": "Hai Tuhanku, sebagaimana telah Kaubaguskan kejadianku, maka baguskanlah perangaiku."
+    },
+    {
+      "judul": "Doa Mengenakan Pakaian Baru",
+      "arab": "اَللّٰهُمَّ لَكَ الْحَمْدُ أَنْتَ كَسَوْتَنِيْهِ أَسْأَلُكَ خَيْرَهُ وَخَيْرَ مَا صُنِعَ لَهُ وأَعُوْذُ بِكَ مِنْ شَرِّهِ وَشَرِّ مَا صُنِعَ لَهُ",
+      "latin": "Allâhumma lakal ḫamdu anta kasautanîhi, as-aluka khairahu wa khaira mâ shuni‘a lahû wa a‘ûdzu bika min syarrihi wa syarri mâ shuni‘a lahû",
+      "arti": "Ya Allah bagi-Mu segala puji. Engkau telah memakaikannya untukku, aku memohon kepada-Mu kebaikannya dan kebaikan apa yang ia dijadikan untuknya, dan aku berlindung dari keburukannya dan keburukan apa yang ia dijadikan untuknya."
+    },
+    {
+      "judul": "Doa Memakan Pakaian",
+      "arab": "اَللّٰهُمَّ إِنِّي أَسْأَلُكَ مِنْ خَيْرِهِ وَخَيْرِ مَا هُوَ لَهُ، وَأَعُوْذُ بِكَ مِنْ شَرِّهِ وَشَرِّ مَا هُوَ لَهُ",
+      "latin": "Allâhumma innî as’aluka min khairhi wa khaira mâ huwa lahu, wa a‘ûdzubika min syarrihi wa syarri mâ huwa lahu",
+      "arti": "Ya Allah, sungguh aku memohon kepada-Mu kebaikan pakaian ini dan kebaikan sesuatu yang di dalamnya, dan aku berlindung kepada-Mu dari keburukan pakaian ini dan keburukan sesuatu yang ada di dalamnya."
+    },
+    {
+      "judul": "Doa Melepas pakaian",
+      "arab": "بِسْمِ اللهِ الَّذِيْ لَا إِلٰهَ إِلَّا هُوَ",
+      "latin": "Bismillâhil ladzî lâilâha illâ huwa",
+      "arti": "Dengan nama Allah yang tiada tuhan selain Dia."
+    },
+    {
+      "judul": "Doa Saat Turun hujan",
+      "arab": "اَللّٰهُمَّ صَيِّبًا نَافِعًا",
+      "latin": "Allâhummâ shayyiban nâfi'an",
+      "arti": "Ya Allah, turunkanlah pada kami hujan yang bermanfaat."
+    },
+    {
+      "judul": "Do'a Setelah Hujan Turun",
+      "arab": "مُطِرْنَا بِفَضْلِ اللهِ وَرَحْمَتِهِ",
+      "latin": "Muthirnâ bi fadhlillâhi wa raḫmatih.",
+      "arti": "Semoga kita dihujani dengan anugerah dan rahmat Allah."
+    },
+    {
+      "judul": "Do'a Untuk Kedua Orang Tua",
+      "arab": "رَبِّ اغْفِرْ لِيْ وَلِوَالِدَيَّ وَارْحَمْهُمَا كَمَا رَبَّيَانِيْ صَغِيْرًا",
+      "latin": "Rabbighfir lî  wa li wâlidayya warḫamhumâ kamâ rabbayânî shaghîrâ.",
+      "arti": "Tuhanku, ampunilah diriku dan kedua orang tuaku, sayangilah mereka sebagaimana mereka menyayangiku di waktu aku kecil."
+    },
+    {
+      "judul": "Do'a Masuk Pasar Atau Mal",
+      "arab": "بِاسْمِ اللّٰهِ، اَللّٰهُمَّ إنِّيْ أَسْأَلُكَ خَيْرَ هٰذِهِ السُّوْقِ وَخَيْرَ مَا فِيْهَا وَأَعُوْذُ بِكَ مِنْ شَرِّهَا وَشَرِّ مَا فِيْهَا، اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ أنْ أُصِيْبَ فِيْهَا يَمِيْنًا فَاجِرَةً أَوْ صَفْقَةً خَاسِرَةً",
+      "latin": "Bismillâh allâhumma innî as-aluka khaira hâdzihi-s-sûqi wa khaira mâ fîhâ wa a‘ûdzubika min syarrihâ wa syarri mâ fîhâ. Allâhumma innî a‘ûdzubika an ushîba fîhâ yamînan fâjiratan au shafqatan khâsiratan",
+      "arti": "Dengan nama Allah, ya Allah, aku memohon kebaikan dari pasar ini dan kebaikan dari apa yang ada di dalamnya. Aku berlindung dari keburukan pasar ini dan keburukan apa yang ada di dalamnya. Ya Allah, aku berlindung dari sumpah palsu dan transaksi yang merugikan."
+    }
+  ]
+}

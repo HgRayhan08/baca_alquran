@@ -21,6 +21,7 @@ class AsmaulHusnaPage extends StatelessWidget {
       ),
       body: FutureBuilder(
           future: Future.microtask(
+            // ignore: use_build_context_synchronously
             () => context.read<AsmaulHusnaBloc>().add(
                   OnFetchAsmaulHusna(),
                 ),
