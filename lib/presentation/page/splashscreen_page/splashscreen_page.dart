@@ -30,63 +30,66 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: fouthColor,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              "Baca Al Quran",
-              style: GoogleFonts.raleway(
-                color: fifthColor,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: height * 0.02),
-            Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: width * 0.05,
-                vertical: height * 0.02,
-              ),
-              decoration: BoxDecoration(
-                color: secoundColor,
-                boxShadow: [
-                  BoxShadow(
-                    // ignore: deprecated_member_use
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 4,
-                    offset: Offset(5, 6),
-                  ),
-                ],
-                borderRadius: BorderRadius.all(
-                  Radius.circular(width * 0.1),
+        backgroundColor: fouthColor,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                "Baca Al Quran",
+                style: GoogleFonts.raleway(
+                  color: fifthColor,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              child: Image.asset("assets/logo.png", width: width * 0.6),
-            ),
-            SizedBox(height: height * 0.03),
-            Text(
-              "Lantunkan ayat-Nya,",
-              style: GoogleFonts.lato(
-                color: thirdColor,
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
+              SizedBox(height: height * 0.02),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: width * 0.05,
+                  vertical: height * 0.02,
+                ),
+                decoration: BoxDecoration(
+                  color: secoundColor,
+                  boxShadow: [
+                    BoxShadow(
+                      // ignore: deprecated_member_use
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 4,
+                      offset: Offset(5, 6),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(width * 0.1),
+                  ),
+                ),
+                child: Opacity(
+                    opacity: 0.7,
+                    child: Image.asset("assets/logo.png", width: width * 0.6)),
               ),
-            ),
-            Text(
-              "dan dekatkan diri pada-Nya",
-              style: GoogleFonts.lato(
-                color: thirdColor,
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
+              SizedBox(height: height * 0.03),
+              Text(
+                "Lantunkan ayat-Nya,",
+                style: GoogleFonts.lato(
+                  color: thirdColor,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-          ],
+              Text(
+                "dan dekatkan diri pada-Nya",
+                style: GoogleFonts.lato(
+                  color: thirdColor,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: Text("Version 1.0.0"));
   }
 }

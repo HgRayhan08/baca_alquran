@@ -1,7 +1,9 @@
+import 'package:aplikasi_suara_ilahi/core/constant.dart';
 import 'package:aplikasi_suara_ilahi/presentation/bloc/doa/doa_bloc.dart';
-import 'package:aplikasi_suara_ilahi/presentation/widget/doa_card_widget.dart';
+import 'package:aplikasi_suara_ilahi/presentation/page/doa_page/doa_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DoaPage extends StatelessWidget {
   const DoaPage({super.key});
@@ -13,7 +15,14 @@ class DoaPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Asmaul Husna"),
+        title: Text(
+          "Kumpulan Doa",
+          style: GoogleFonts.raleway(
+            color: fifthColor,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         elevation: 0,
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.transparent,

@@ -133,7 +133,8 @@ class BodyDetail extends StatelessWidget {
         centerTitle: true,
         title: Text(
           surat.data.namaLatin,
-          style: GoogleFonts.raleway(fontSize: 18, fontWeight: FontWeight.w600),
+          style: GoogleFonts.raleway(
+              fontSize: 18, fontWeight: FontWeight.bold, color: firstColor),
         ),
       ),
       body: BodySurat(
@@ -166,16 +167,32 @@ class BodySurat extends StatelessWidget {
           width: width,
           height: height * 0.1,
           decoration: BoxDecoration(
-            color: thirdColor,
+            gradient: LinearGradient(
+              colors: [thirdColor, firstColor], // Warna gradasi
+              begin: Alignment.topCenter, // Mulai dari kiri atas
+              end: Alignment.bottomCenter, // Berakhir di kanan bawah
+            ),
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("${detail.namaLatin}(${detail.nomor})"),
-              Text("(${detail.arti})"),
-              Text("${detail.tempatTurun} | ${detail.jumlahAyat} Ayat")
+              Text(
+                "${detail.namaLatin}(${detail.nomor})",
+                style: GoogleFonts.lato(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              Text(
+                "(${detail.arti})",
+                style: GoogleFonts.lato(fontSize: 16, color: fifthColor),
+              ),
+              Text(
+                "${detail.tempatTurun} | ${detail.jumlahAyat} Ayat",
+                style: GoogleFonts.lato(fontSize: 16, color: fifthColor),
+              )
             ],
           ),
         ),
@@ -190,16 +207,13 @@ class BodySurat extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      width: width * 0.08,
-                      height: width * 0.08,
-                      decoration: BoxDecoration(
-                        color: secoundColor,
-                        borderRadius: BorderRadius.all(Radius.circular(100)),
-                      ),
-                      child: Center(
-                        child: Text(
-                          ayat[index].nomorAyat.toString(),
+                    CircleAvatar(
+                      backgroundColor: secoundColor,
+                      child: Text(
+                        ayat[index].nomorAyat.toString(),
+                        style: GoogleFonts.lato(
+                          fontSize: 18,
+                          color: fifthColor,
                         ),
                       ),
                     ),

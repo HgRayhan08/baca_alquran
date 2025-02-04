@@ -35,11 +35,11 @@ class _CardDoaWidgetState extends State<CardDoaWidget> {
           Row(
             children: [
               CircleAvatar(
-                backgroundColor: thirdColor,
+                backgroundColor: secoundColor,
                 child: Text(
                   "${widget.index + 1}",
                   style: GoogleFonts.lato(
-                    color: Colors.white,
+                    color: fifthColor,
                     fontSize: 18,
                   ),
                 ),
@@ -62,7 +62,12 @@ class _CardDoaWidgetState extends State<CardDoaWidget> {
           else
             Container(
               margin: EdgeInsets.only(left: widget.width * 0.13),
-              // decoration: BoxDecoration(color: Colors.amber),
+              padding: EdgeInsets.only(bottom: widget.height * 0.01),
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(width: 0.5),
+                ),
+              ),
               child: Column(
                 children: [
                   SizedBox(height: widget.height * 0.01),

@@ -13,7 +13,14 @@ class AsmaulHusnaPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Asmaul Husna"),
+        title: Text(
+          "Asmaul Husna",
+          style: GoogleFonts.raleway(
+            color: fifthColor,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         elevation: 0,
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.transparent,
@@ -39,7 +46,7 @@ class AsmaulHusnaPage extends StatelessWidget {
                 return ListAsmaulHusna(data: data);
               } else {
                 return Center(
-                  child: Text("Aplikasi Sedang Error dan tidak diketahui..."),
+                  child: Text("Loading..."),
                 );
               }
             });
@@ -71,17 +78,17 @@ class ListAsmaulHusna extends StatelessWidget {
               Row(
                 children: [
                   CircleAvatar(
-                    backgroundColor: thirdColor,
+                    backgroundColor: secoundColor,
                     child: Text(
                       data[index].urutan.toString(),
                       style: GoogleFonts.lato(
-                        color: Colors.white,
+                        color: fifthColor,
                         fontSize: 18,
                       ),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: width * 0.03),
+                    margin: EdgeInsets.only(left: width * 0.04),
                     width: width * 0.5,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,

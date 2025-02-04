@@ -1,3 +1,4 @@
+import 'package:aplikasi_suara_ilahi/core/constant.dart';
 import 'package:aplikasi_suara_ilahi/presentation/page/asmaul_husna_page/asmaul_husna_page.dart';
 import 'package:aplikasi_suara_ilahi/presentation/page/doa_page/doa_page.dart';
 import 'package:aplikasi_suara_ilahi/presentation/page/surat_page/surat_page.dart';
@@ -32,24 +33,25 @@ class _HomePageState extends State<HomePage> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
-      ),
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: SizedBox.shrink(),
+              label: 'Al-Quran',
+            ),
+            BottomNavigationBarItem(
+              icon: SizedBox.shrink(),
+              label: 'Asmaul Husna',
+            ),
+            BottomNavigationBarItem(
+              icon: SizedBox.shrink(),
+              label: 'Kumpulan Doa',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: fifthColor,
+          onTap: _onItemTapped,
+          unselectedItemColor: thirdColor,
+          selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold)),
     );
   }
 }
