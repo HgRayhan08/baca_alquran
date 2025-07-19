@@ -6,13 +6,18 @@ plugins {
 }
 
 def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(rootProject.file("key.properties")))
+// keystoreProperties.load(new FileInputStream(rootProject.file("key.properties")))
+def keystorePropertiesFile = rootProject.file("key.properties")
 
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
 
 android {
     namespace = "com.example.aplikasi_suara_ilahi"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -35,10 +40,12 @@ android {
     }
     signingConfigs {
         release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
+            if (keystorePropertiesFile.exists()) {
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            }
         }
     }
     buildTypes {
@@ -54,3 +61,12 @@ android {
 flutter {
     source = "../.."
 }
+
+// huawei AppGalery
+dependencies {
+    // Add dependencies.
+    implementation 'com.huawei.agconnect:agconnect-core:1.5.2.300'
+}
+
+// Add the information to the bottom of the file.
+apply plugin: 'com.huawei.agconnect'
