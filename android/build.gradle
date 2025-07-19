@@ -1,7 +1,24 @@
+
+// upload untuh appGalery
+buildscript{
+    repositories {
+        google()
+        mavenCentral()
+        // Add the Maven address.
+        maven { url 'https://developer.huawei.com/repo/' }
+    }
+    dependencies {
+        // Add dependencies.
+        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath 'com.huawei.agconnect:agcp:1.5.2.300'
+    }
+}
+
 allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://developer.huawei.com/repo/' }
     }
 }
 
