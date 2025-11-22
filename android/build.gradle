@@ -14,12 +14,16 @@ buildscript{
     }
 }
 
+
 allprojects {
     repositories {
         google()
         mavenCentral()
         maven { url 'https://developer.huawei.com/repo/' }
+        //upload untuk appGalery
+        maven {url 'https://developer.huawei.com/repo/'}
     }
+    
 }
 
 rootProject.buildDir = "../build"
