@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:aplikasi_suara_ilahi/presentation/page/surat_page/card_information_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:aplikasi_suara_ilahi/core/constant.dart';
-import 'package:aplikasi_suara_ilahi/presentation/bloc/last_surat/bloc/last_surat_bloc.dart';
 import 'package:aplikasi_suara_ilahi/presentation/bloc/surat/surat_bloc.dart';
 import 'package:aplikasi_suara_ilahi/presentation/page/detail_surat_page/detail_surat_page.dart';
 
@@ -116,12 +116,29 @@ class _SuratPageState extends State<SuratPage> {
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(15),
                                       ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: secoundColor,
+                                          spreadRadius: 1,
+                                          blurRadius: 3,
+                                          offset: Offset(2, 2),
+                                        ),
+                                        BoxShadow(
+                                          color: Colors.white,
+                                          spreadRadius: -1,
+                                          blurRadius: 3,
+                                          offset: Offset(-2, -2),
+                                        ),
+                                      ],
                                     ),
                                     child: Center(
                                       child: Text(
                                         "${index + 1}",
-                                        style:
-                                            GoogleFonts.lato(color: fifthColor),
+                                        style: GoogleFonts.lato(
+                                          color: fifthColor,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -139,7 +156,7 @@ class _SuratPageState extends State<SuratPage> {
                                   ),
                                   Text(
                                     data[index].nama,
-                                    style: GoogleFonts.lato(fontSize: 18),
+                                    style: GoogleFonts.lato(fontSize: 20),
                                   ),
                                 ],
                               ),
@@ -158,196 +175,6 @@ class _SuratPageState extends State<SuratPage> {
                 },
               );
             },
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ButtonContinue extends StatelessWidget {
-  const ButtonContinue({
-    super.key,
-    required this.width,
-    required this.height,
-    required this.onTap,
-  });
-  final Function() onTap;
-  final double width;
-  final double height;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: width * 0.3,
-        height: height * 0.04,
-        decoration: BoxDecoration(
-          color: fifthColor,
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ),
-        ),
-        child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                "Continue",
-                style: GoogleFonts.raleway(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Icon(
-                Icons.arrow_right_alt_sharp,
-                size: 30,
-                color: Colors.white,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CardInformation extends StatefulWidget {
-  final double width;
-  final double height;
-  const CardInformation({
-    super.key,
-    required this.width,
-    required this.height,
-  });
-
-  @override
-  State<CardInformation> createState() => _CardInformationState();
-}
-
-class _CardInformationState extends State<CardInformation> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        top: widget.height * 0.01,
-        left: widget.width * 0.05,
-        right: widget.width * 0.05,
-      ),
-      padding: EdgeInsets.all(widget.width * 0.05),
-      height: widget.height * 0.2,
-      decoration: BoxDecoration(
-        color: secoundColor,
-        borderRadius: BorderRadius.all(
-          Radius.circular(widget.width * 0.05),
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          FutureBuilder(
-            future: Future.microtask(
-              // ignore: use_build_context_synchronously
-              () => context.read<LastSuratBloc>().add(
-                    OnGetLastSurat(),
-                  ),
-            ),
-            builder: (context, snapshot) {
-              return BlocBuilder<LastSuratBloc, LastSuratState>(
-                builder: (context, state) {
-                  if (state is LastSuratLoading) {
-                    return Center(
-                      child: Text("Loading..."),
-                    );
-                  }
-                  if (state is LastSuratHasData) {
-                    final data = state.suratModela;
-                    if (data["surat"] != null) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: widget.width * 0.4,
-                            decoration: BoxDecoration(
-                              // color: secoundColor,
-                              border: Border(
-                                bottom: BorderSide(),
-                              ),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                  bottom: widget.height * 0.005),
-                              child: Text(
-                                "Last Reading",
-                                style: GoogleFonts.lato(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            "Surat ${data["surat"] ?? ""}",
-                            style: GoogleFonts.lato(
-                                fontSize: 20, fontWeight: FontWeight.w600),
-                          ),
-                          ButtonContinue(
-                            width: widget.width,
-                            height: widget.height,
-                            onTap: () async {
-                              bool result = await Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      DetailSuratPage(nomor: data["code"]),
-                                ),
-                              );
-                              if (result == true) {
-                                setState(() {});
-                              }
-                            },
-                          ),
-                        ],
-                      );
-                    } else {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Assalamualaikum ",
-                            style: GoogleFonts.raleway(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            "selamat datang di aplikasi",
-                            style: GoogleFonts.raleway(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )
-                        ],
-                      );
-                    }
-                  }
-                  if (state is LastSuratError) {
-                    return Center(
-                      child: Text("Error..."),
-                    );
-                  }
-                  return Center(
-                    child: Text("Terjadi Error"),
-                  );
-                },
-              );
-            },
-          ),
-          Image.asset(
-            "assets/logo.png",
-            width: widget.width * 0.35,
           ),
         ],
       ),

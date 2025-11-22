@@ -13,6 +13,10 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 android {
     namespace = "com.example.aplikasi_suara_ilahi"
     compileSdk = flutter.compileSdkVersion
@@ -35,7 +39,7 @@ android {
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
+        versionCode = 2
         versionName = flutter.versionName
     }
     signingConfigs {
@@ -69,4 +73,5 @@ dependencies {
 }
 
 // Add the information to the bottom of the file.
+apply plugin: 'com.huawei.agconnect'
 apply plugin: 'com.huawei.agconnect'
